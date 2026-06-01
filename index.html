@@ -1,418 +1,477 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="進金生能源服務 — 公司簡介暨服務介紹">
-<title>進金生能源服務 | 公司簡報</title>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="進金生能源服務（ACMEPOINT ENERGY SERVICES）公司簡介暨服務介紹。太陽能 EPC、IPP、儲能、微電網整合解決方案。股票代號 6692。">
+  <meta property="og:title" content="ACMEPOINT ENERGY SERVICES｜公司簡報 2025">
+  <meta property="og:description" content="累積建置 680 MW 太陽能電廠 · 總儲能容量 238.4 MW · 上櫃股票 6692">
+  <meta property="og:image" content="slides/slide-01.png">
+  <meta property="og:type" content="website">
+  <title>ACMEPOINT ENERGY SERVICES｜公司簡報 2025</title>
 
-  :root {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --border: #30363d;
-    --accent: #2ea043;
-    --accent2: #388bfd;
-    --text: #e6edf3;
-    --muted: #8b949e;
-    --ctrl-h: 52px;
-  }
+  <!-- Reveal.js 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
 
-  html, body {
-    width: 100%; height: 100%;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
-    overflow: hidden;
-    user-select: none;
-  }
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; }
 
-  /* ── Layout ── */
-  #app { display: flex; flex-direction: column; height: 100vh; }
+    /* ── Page shell ── */
+    html, body {
+      margin: 0; padding: 0;
+      background: #0b1220;
+      height: 100%;
+      overflow: hidden;
+    }
 
-  /* ── Control bar ── */
-  #controls {
-    display: flex; align-items: center; gap: 10px;
-    height: var(--ctrl-h);
-    padding: 0 16px;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    flex-shrink: 0;
-    z-index: 10;
-  }
+    /* ── Reveal overrides ── */
+    .reveal-viewport { background: #0b1220; }
 
-  #logo {
-    font-size: 13px; font-weight: 600;
-    color: var(--accent);
-    white-space: nowrap;
-    margin-right: 4px;
-  }
+    .reveal {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont,
+                   'PingFang TC', 'Microsoft JhengHei', 'Segoe UI', sans-serif;
+    }
 
-  #progress-wrap {
-    flex: 1;
-    height: 4px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  #progress-bar {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 2px;
-    transition: width 0.25s ease;
-  }
+    /* No padding on slides — images fill everything */
+    .reveal .slides section {
+      padding: 0;
+      top: 0 !important;
+      height: 100%;
+    }
 
-  #slide-counter {
-    font-size: 12px;
-    color: var(--muted);
-    white-space: nowrap;
-    min-width: 52px;
-    text-align: right;
-  }
+    /* ── Progress bar ── */
+    .reveal .progress {
+      height: 4px;
+      color: #00c5d7;
+      z-index: 100;
+    }
 
-  .btn {
-    display: flex; align-items: center; justify-content: center;
-    width: 32px; height: 32px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text);
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.15s, border-color 0.15s;
-    flex-shrink: 0;
-  }
-  .btn:hover { background: var(--border); border-color: var(--muted); }
-  .btn:active { background: #30363d; }
-  .btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    /* ── Navigation arrows ── */
+    .reveal .controls {
+      color: #00c5d7;
+      bottom: 20px;
+      right: 16px;
+    }
+    .reveal .controls .controls-arrow { opacity: 0.7; }
+    .reveal .controls .controls-arrow:hover { opacity: 1; }
 
-  /* ── Stage ── */
-  #stage {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    background: #050709;
-  }
+    /* ── Slide number ── */
+    .reveal .slide-number {
+      background: rgba(27, 72, 160, 0.85);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 4px;
+      padding: 4px 9px;
+      bottom: 22px;
+      left: 20px;
+      right: auto;
+    }
 
-  #slide-img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    display: block;
-    object-fit: contain;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-  }
-  #slide-img.fade { opacity: 0; }
+    /* ── Overview mode (press O) ── */
+    .reveal.overview .slides section:hover {
+      outline: 3px solid #00c5d7;
+    }
 
-  /* ── Nav arrows ── */
-  .nav-arrow {
-    position: absolute;
-    top: 50%; transform: translateY(-50%);
-    width: 44px; height: 80px;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(22,27,34,0.7);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 20px;
-    color: var(--muted);
-    transition: background 0.15s, color 0.15s, opacity 0.2s;
-    opacity: 0;
-    z-index: 5;
-  }
-  #stage:hover .nav-arrow { opacity: 1; }
-  .nav-arrow:hover { background: rgba(48,54,61,0.9); color: var(--text); }
-  .nav-arrow.disabled { opacity: 0 !important; pointer-events: none; }
-  #nav-prev { left: 12px; }
-  #nav-next { right: 12px; }
+    /* ── Loading overlay ── */
+    #acme-loader {
+      position: fixed; inset: 0;
+      background: #0b1220;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 20px;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    #acme-loader.hidden { opacity: 0; pointer-events: none; }
 
-  /* ── Thumbnail drawer ── */
-  #thumb-drawer {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    height: 120px;
-    background: rgba(13,17,23,0.97);
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    transition: transform 0.3s ease;
-    transform: translateY(100%);
-    z-index: 20;
-  }
-  #thumb-drawer.open { transform: translateY(0); }
-  #thumb-drawer::-webkit-scrollbar { height: 4px; }
-  #thumb-drawer::-webkit-scrollbar-track { background: transparent; }
-  #thumb-drawer::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .loader-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .loader-sub {
+      font-size: 12px;
+      color: #6a8db5;
+      letter-spacing: 0.06em;
+    }
+    .loader-bar-wrap {
+      width: 180px; height: 3px;
+      background: #1a2a45;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .loader-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #1B5FAD, #00c5d7);
+      border-radius: 2px;
+      animation: loadBar 1.4s ease-in-out infinite;
+    }
+    @keyframes loadBar {
+      0%   { width: 0%;   margin-left: 0; }
+      50%  { width: 70%;  margin-left: 15%; }
+      100% { width: 0%;   margin-left: 100%; }
+    }
 
-  .thumb {
-    flex-shrink: 0;
-    width: 142px;
-    height: 80px;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    overflow: hidden;
-    cursor: pointer;
-    transition: border-color 0.15s;
-    position: relative;
-  }
-  .thumb img { width: 100%; height: 100%; object-fit: cover; }
-  .thumb:hover { border-color: var(--muted); }
-  .thumb.active { border-color: var(--accent); }
-  .thumb-label {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    font-size: 9px;
-    color: #fff;
-    background: rgba(0,0,0,0.6);
-    padding: 2px 4px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* ── Fullscreen ── */
-  :fullscreen #controls { display: none; }
-  :fullscreen #app { height: 100vh; }
-  :-webkit-full-screen #controls { display: none; }
-
-  /* ── Keyboard hint ── */
-  #hint {
-    position: fixed; bottom: 16px; right: 16px;
-    font-size: 11px;
-    color: var(--muted);
-    pointer-events: none;
-    z-index: 30;
-    transition: opacity 0.5s;
-  }
-
-  /* ── Loading ── */
-  #loading {
-    position: fixed; inset: 0;
-    background: var(--bg);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 16px;
-    z-index: 100;
-    transition: opacity 0.4s;
-  }
-  #loading.hidden { opacity: 0; pointer-events: none; }
-  .spinner {
-    width: 36px; height: 36px;
-    border: 3px solid var(--border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* Mobile */
-  @media (max-width: 600px) {
-    #logo { display: none; }
-    .thumb { width: 106px; height: 60px; }
-    #thumb-drawer { height: 90px; }
-  }
-</style>
+    /* ── Custom help tooltip ── */
+    #acme-hint {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(11, 18, 32, 0.88);
+      border: 1px solid #1e3a60;
+      border-radius: 6px;
+      padding: 7px 16px;
+      font-size: 11px;
+      color: #6a8db5;
+      white-space: nowrap;
+      z-index: 500;
+      pointer-events: none;
+      transition: opacity 0.6s;
+    }
+    #acme-hint span { color: #00c5d7; font-weight: 600; }
+  </style>
 </head>
 <body>
 
-<div id="loading">
-  <div class="spinner"></div>
-  <span style="font-size:13px;color:var(--muted)">載入簡報中…</span>
+<!-- Loading screen -->
+<div id="acme-loader">
+  <div class="loader-logo">ACMEPOINT ENERGY SERVICES</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-sub">載入簡報中 …</div>
 </div>
 
-<div id="app">
-  <!-- Control bar -->
-  <div id="controls">
-    <div id="logo">進金生能源服務</div>
-
-    <button class="btn" id="btn-prev" title="上一張 (←)">&#8592;</button>
-    <button class="btn" id="btn-next" title="下一張 (→)">&#8594;</button>
-
-    <div id="progress-wrap" title="點擊跳頁">
-      <div id="progress-bar"></div>
-    </div>
-
-    <span id="slide-counter">1 / 22</span>
-
-    <button class="btn" id="btn-thumbs" title="投影片總覽 (T)">&#9783;</button>
-    <button class="btn" id="btn-fs" title="全螢幕 (F)">&#x26F6;</button>
-  </div>
-
-  <!-- Stage -->
-  <div id="stage">
-    <div class="nav-arrow" id="nav-prev">&#8249;</div>
-    <img id="slide-img" src="" alt="投影片" draggable="false">
-    <div class="nav-arrow" id="nav-next">&#8250;</div>
-  </div>
+<!-- Keyboard hint -->
+<div id="acme-hint">
+  <span>← →</span> 換頁 &ensp;|&ensp;
+  <span>O</span> 投影片總覽 &ensp;|&ensp;
+  <span>F</span> 全螢幕 &ensp;|&ensp;
+  <span>S</span> 講者備忘錄
 </div>
 
-<!-- Thumbnail drawer -->
-<div id="thumb-drawer" id="thumbs"></div>
+<!-- Reveal.js presentation -->
+<div class="reveal">
+  <div class="slides">
 
-<div id="hint">← → 換頁 &nbsp;|&nbsp; F 全螢幕 &nbsp;|&nbsp; T 縮圖</div>
+    <!-- ── Slide 1  封面 ── -->
+    <section
+      data-background-image="slides/slide-01.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【封面】歡迎各位，今天由進金生能源服務為大家介紹公司業務。
+        進金生是台灣上櫃太陽能整合服務商（股票代號 6692），致力於讓「綠色成為企業的底色」。
+      </aside>
+    </section>
+
+    <!-- ── Slide 2  目錄 ── -->
+    <section
+      data-background-image="slides/slide-02.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【目錄】本次簡報分四大部分：
+        01 公司簡介、02 實績介紹、03 解決方案及商業模式、04 聯絡我們。
+      </aside>
+    </section>
+
+    <!-- ══ PART ONE：公司簡介 ══ -->
+
+    <!-- Slide 3  Part One 分節頁 -->
+    <section
+      data-background-image="slides/slide-03.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">【Part One】公司簡介章節。</aside>
+    </section>
+
+    <!-- Slide 4  企業概況 -->
+    <section
+      data-background-image="slides/slide-04.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【企業概況】
+        · 股票代號 6692（上櫃），資本額 5.8 億
+        · 光電案場 300 餘座，科學園區及工業區覆蓋率 50%
+      </aside>
+    </section>
+
+    <!-- Slide 5  營業據點 -->
+    <section
+      data-background-image="slides/slide-05.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【營業據點】全台五大據點：台北（總部）、桃園、台中、台南、高雄（南區事業中心）。
+      </aside>
+    </section>
+
+    <!-- Slide 6  發展歷程 -->
+    <section
+      data-background-image="slides/slide-06.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【發展歷程】
+        2009 集團跨足綠能市場
+        2014 正式成立進能服公司
+        2018 上櫃，資本額 5.8 億
+        2019 成為台灣 Top 6 EPC（~2025）
+        2020 通過 ISO 國際認證
+        2024 太陽能建置量達 100 MW；取得東達地熱電廠土地所有權
+      </aside>
+    </section>
+
+    <!-- Slide 7  專業認證 -->
+    <section
+      data-background-image="slides/slide-07.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【專業認證 / 企業榮耀】
+        · TÜV AAA 全台首家
+        · ISO 9001 / 14001 / 45001 品質管理認證
+        · 城市品質工程金質獎 2020–2024 連續五年
+      </aside>
+    </section>
+
+    <!-- Slide 8  專業證照 -->
+    <section
+      data-background-image="slides/slide-08.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【專業證照】員工證照共 355 張：
+        A 類：國際專案管理師/碳管理師 13 張；太陽光電/室內配線技術士 52 張；無人機操作證 7 張；環安衛技術證照 264 張
+        B 類：博士級電網專家 4 人
+        C 類：電機技師、土木技師、結構技師
+      </aside>
+    </section>
+
+    <!-- Slide 9  IPP Partners -->
+    <section
+      data-background-image="slides/slide-09.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【IPP 協作夥伴 / 企業嚴選】
+        展示主要合作夥伴與企業客戶。
+      </aside>
+    </section>
+
+    <!-- ══ PART TWO：實績介紹 ══ -->
+
+    <!-- Slide 10  Part Two 分節頁 -->
+    <section
+      data-background-image="slides/slide-10.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">【Part Two】實績介紹章節。</aside>
+    </section>
+
+    <!-- Slide 11  工程案例 -->
+    <section
+      data-background-image="slides/slide-11.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【實績介紹｜工程案例】百座太陽能電廠建置及維護經驗：
+        · 累積案場建置 680 MW（312 座）
+        · 累積發電量 2,764 GWh
+      </aside>
+    </section>
+
+    <!-- Slide 12  儲能案場 -->
+    <section
+      data-background-image="slides/slide-12.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【實績介紹｜儲能案場】總容量 238.4 MW，合作對象包含富昱鑫科技、昱鼎能源科技、大蓄能源、富立金實業、旭利能源、CSP 等。
+        最大單案：150 MW / 440 MWh（預計 114 年 Q1 上線）。
+      </aside>
+    </section>
+
+    <!-- Slide 13  微電網 -->
+    <section
+      data-background-image="slides/slide-13.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【實績介紹｜微電網】
+        · 南化 S/S、笨港 S/S → 台電區域電網串接
+        · 成功大學微電網開發
+        · 台北市軟橋公園智慧電網示範計畫
+        · 建研所、國研院示範系統
+      </aside>
+    </section>
+
+    <!-- ══ PART THREE：解決方案及商業模式 ══ -->
+
+    <!-- Slide 14  Part Three 分節頁 -->
+    <section
+      data-background-image="slides/slide-14.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">【Part Three】解決方案及商業模式章節。</aside>
+    </section>
+
+    <!-- Slide 15  服務類別 -->
+    <section
+      data-background-image="slides/slide-15.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【解決方案｜服務類別】三大服務主軸：
+        IPP（自持電廠投資）、EPC（工程承包）、設備產品
+        服務涵蓋：開發→規劃設計→工程技術→維運客服→資產管理
+      </aside>
+    </section>
+
+    <!-- Slide 16  服務生態系 -->
+    <section
+      data-background-image="slides/slide-16.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【解決方案｜服務生態系】生態系合作夥伴：
+        · 模組代理：Canadian Solar
+        · 工商儲能：DELTA
+        · 家用儲能：ATMOCE
+        · 綠電交易：Natural Power（進能服關係企業）
+        · 用電可視化：進能服關係企業
+        · 電廠投資：國泰電業（進金生合資）
+      </aside>
+    </section>
+
+    <!-- Slide 17  商業模式｜租賃 -->
+    <section
+      data-background-image="slides/slide-17.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【商業模式｜租賃】屋頂租賃模式：
+        出租方提供屋頂 → 建坤能源（ACMEPOINT）負責開發/工程/O&M
+        售電收益 ≥80% 售至售電業；餘躉 &lt;20% 賣給台電
+        租金回饋出租方；保險合約、銀行融資由 ACMEPOINT 統籌。
+      </aside>
+    </section>
+
+    <!-- Slide 18  商業模式｜持有資產 -->
+    <section
+      data-background-image="slides/slide-18.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【商業模式｜持有資產】ACMEPOINT 全程自持：
+        業主簽開發合約→申請許可→工程建置→系統維運
+        進能服為一條龍資產持有開發商。
+      </aside>
+    </section>
+
+    <!-- Slide 19  商業模式｜綠電採購 -->
+    <section
+      data-background-image="slides/slide-19.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【商業模式｜綠電採購】透過合作夥伴協助企業進行綠電採購（RE100 需求）。
+      </aside>
+    </section>
+
+    <!-- ══ PART FOUR：聯絡我們 ══ -->
+
+    <!-- Slide 20  Part Four 分節頁 -->
+    <section
+      data-background-image="slides/slide-20.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">【Part Four】聯絡我們章節。</aside>
+    </section>
+
+    <!-- Slide 21  聯絡資訊 -->
+    <section
+      data-background-image="slides/slide-21.png"
+      data-background-size="contain"
+      data-background-color="#ffffff">
+      <aside class="notes">
+        【聯絡我們】
+        公司總部：台北市內湖區新湖二路 257 號 6 樓
+        南區事業中心：高雄市前鎮區中山二路 2 號 7 樓之 3
+        業務電話：07-3347879
+        官網：https://acmepointes.com/
+      </aside>
+    </section>
+
+    <!-- Slide 22  Thank You -->
+    <section
+      data-background-image="slides/slide-22.png"
+      data-background-size="contain"
+      data-background-color="#1B5FAD">
+      <aside class="notes">
+        感謝各位撥冗聆聽。如有任何問題，歡迎直接聯繫業務或來電洽詢。
+      </aside>
+    </section>
+
+  </div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<!-- Reveal.js core -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<!-- Notes plugin (press S for speaker notes) -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
 
 <script>
-// ── Slide order (logical order corrected) ──
-const ORDER = [1,12,16,17,18,19,20,21,22,2,3,4,5,6,7,8,9,10,11,13,14,15];
-const LABELS = [
-  '封面','目錄',
-  'Part One','企業概況','營業據點','發展歷程','專業認證','專業證照','IPP Partners',
-  'Part Two','工程案例','儲能案場','微電網',
-  'Part Three','服務類別','服務生態系','商業模式・租賃','商業模式・持有','商業模式・綠電',
-  'Part Four','聯絡我們','Thank You'
-];
-const TOTAL = ORDER.length;
+  /* ── Initialise Reveal.js ── */
+  Reveal.initialize({
+    // Slide dimensions — match our 16:9 PNGs
+    width:  1920,
+    height: 1080,
+    margin: 0,
+    minScale: 0.05,
+    maxScale: 4.0,
 
-const pad = n => String(n).padStart(2,'0');
-const src  = i => `slides/slide-${pad(ORDER[i])}.png`;
+    // Navigation
+    hash:     true,   // slide number in URL (#/N)
+    keyboard: true,
+    touch:    true,
+    loop:     false,
 
-let current = 0;
-const imgs = ORDER.map((_,i) => { const im = new Image(); im.src = src(i); return im; });
+    // UI
+    controls:         true,
+    controlsLayout:   'bottom-right',
+    progress:         true,
+    slideNumber:      'c/t',
+    showSlideNumber:  'all',
+    overview:         true,   // press O
+    center:           false,
 
-const slideImg    = document.getElementById('slide-img');
-const counter     = document.getElementById('slide-counter');
-const progressBar = document.getElementById('progress-bar');
-const navPrev     = document.getElementById('nav-prev');
-const navNext     = document.getElementById('nav-next');
-const thumbDrawer = document.getElementById('thumb-drawer');
-const btnThumbs   = document.getElementById('btn-thumbs');
-const btnFs       = document.getElementById('btn-fs');
-const btnPrev     = document.getElementById('btn-prev');
-const btnNext     = document.getElementById('btn-next');
-const loading     = document.getElementById('loading');
-const hint        = document.getElementById('hint');
+    // Transitions
+    transition:           'fade',
+    transitionSpeed:      'fast',
+    backgroundTransition: 'fade',
 
-// Build thumbnails
-ORDER.forEach((_,i) => {
-  const div = document.createElement('div');
-  div.className = 'thumb' + (i === 0 ? ' active' : '');
-  div.dataset.index = i;
-  const img = document.createElement('img');
-  img.src = src(i);
-  img.loading = 'lazy';
-  const lbl = document.createElement('div');
-  lbl.className = 'thumb-label';
-  lbl.textContent = `${i+1}. ${LABELS[i]}`;
-  div.appendChild(img);
-  div.appendChild(lbl);
-  div.addEventListener('click', () => { goto(i); toggleThumbs(false); });
-  thumbDrawer.appendChild(div);
-});
+    // Plugins
+    plugins: [ RevealNotes ],
+  });
 
-function goto(n, instant) {
-  if (n < 0 || n >= TOTAL) return;
-  const prev = current;
-  current = n;
+  /* ── Hide loader once Reveal is ready ── */
+  Reveal.on('ready', () => {
+    const loader = document.getElementById('acme-loader');
+    loader.classList.add('hidden');
+    setTimeout(() => loader.remove(), 600);
+  });
 
-  if (!instant) {
-    slideImg.classList.add('fade');
-    setTimeout(() => {
-      slideImg.src = src(current);
-      slideImg.classList.remove('fade');
-    }, 150);
-  } else {
-    slideImg.src = src(current);
-  }
-
-  counter.textContent = `${current+1} / ${TOTAL}`;
-  progressBar.style.width = `${(current+1)/TOTAL*100}%`;
-  navPrev.classList.toggle('disabled', current === 0);
-  navNext.classList.toggle('disabled', current === TOTAL-1);
-
-  // Update thumbs
-  thumbDrawer.querySelectorAll('.thumb').forEach((t,i) => t.classList.toggle('active', i===current));
-  const activeThumb = thumbDrawer.querySelector('.thumb.active');
-  if (activeThumb) activeThumb.scrollIntoView({ inline:'center', behavior:'smooth' });
-}
-
-function toggleThumbs(force) {
-  const open = force !== undefined ? force : !thumbDrawer.classList.contains('open');
-  thumbDrawer.classList.toggle('open', open);
-  btnThumbs.classList.toggle('active', open);
-}
-
-// Initial load
-slideImg.src = src(0);
-slideImg.onload = () => {
-  loading.classList.add('hidden');
-  // Preload next few
-  [1,2,3].forEach(i => { if(imgs[i]) imgs[i].src = src(i); });
-};
-
-// Preload ahead as we navigate
-function preload(n) {
-  [n+1, n+2, n-1].forEach(i => { if(i>=0 && i<TOTAL) imgs[i].src = src(i); });
-}
-
-// Controls
-btnPrev.addEventListener('click', () => goto(current-1));
-btnNext.addEventListener('click', () => goto(current+1));
-navPrev.addEventListener('click', () => goto(current-1));
-navNext.addEventListener('click', () => goto(current+1));
-slideImg.addEventListener('click', e => {
-  const half = slideImg.getBoundingClientRect().width / 2;
-  if (e.clientX - slideImg.getBoundingClientRect().left < half) goto(current-1);
-  else goto(current+1);
-});
-btnThumbs.addEventListener('click', () => toggleThumbs());
-btnFs.addEventListener('click', () => {
-  if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
-  else document.exitFullscreen?.();
-});
-
-// Progress bar click → jump to slide
-document.getElementById('progress-wrap').addEventListener('click', e => {
-  const rect = e.currentTarget.getBoundingClientRect();
-  const ratio = (e.clientX - rect.left) / rect.width;
-  goto(Math.round(ratio * (TOTAL-1)));
-});
-
-// Keyboard
-document.addEventListener('keydown', e => {
-  if (e.target.tagName === 'INPUT') return;
-  switch(e.key) {
-    case 'ArrowRight': case 'ArrowDown': case ' ': case 'Enter': e.preventDefault(); goto(current+1); break;
-    case 'ArrowLeft':  case 'ArrowUp':              e.preventDefault(); goto(current-1); break;
-    case 'Home':  e.preventDefault(); goto(0); break;
-    case 'End':   e.preventDefault(); goto(TOTAL-1); break;
-    case 'f': case 'F':
-      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
-      else document.exitFullscreen?.();
-      break;
-    case 't': case 'T': toggleThumbs(); break;
-    case 'Escape': toggleThumbs(false); break;
-  }
-  preload(current);
-});
-
-// Touch swipe
-let tx = 0;
-document.getElementById('stage').addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
-document.getElementById('stage').addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - tx;
-  if (Math.abs(dx) > 40) { dx < 0 ? goto(current+1) : goto(current-1); }
-}, {passive:true});
-
-// Fullscreen icon update
-document.addEventListener('fullscreenchange', () => {
-  btnFs.textContent = document.fullscreenElement ? '⊡' : '⛶';
-});
-
-// Hide hint after 5s
-setTimeout(() => { hint.style.opacity = '0'; }, 5000);
-
-// Init
-goto(0, true);
+  /* ── Hide hint after 8 s ── */
+  setTimeout(() => {
+    const hint = document.getElementById('acme-hint');
+    if (hint) { hint.style.opacity = '0'; setTimeout(() => hint.remove(), 700); }
+  }, 8000);
 </script>
 </body>
 </html>
